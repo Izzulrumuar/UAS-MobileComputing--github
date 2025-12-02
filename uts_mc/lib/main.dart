@@ -30,54 +30,59 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              
-              // BOX DIPERKECIL
-              SizedBox(
-                width: 250, // << ukuran input
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Username',
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // BOX DIPERKECIL
-              SizedBox(
-                width: 250,
-                child: const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              SizedBox(
-                width: 250, // tombol disesuaikan dengan box
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Login'),
-                ),
-              ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Color(0xFF90CAF9),
             ],
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 250,
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Username',
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 10,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 250,
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 10,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Login'),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
