@@ -47,6 +47,8 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                // USERNAME
                 SizedBox(
                   width: 250,
                   child: const TextField(
@@ -56,10 +58,20 @@ class LoginPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 10,
                       ),
+                      border: OutlineInputBorder(),                // <-- bingkai kotak
+                      enabledBorder: OutlineInputBorder(           // <-- bingkai kotak normal
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      focusedBorder: OutlineInputBorder(           // <-- bingkai saat fokus
+                        borderSide: BorderSide(color: Colors.blue, width: 2),
+                      ),
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 20),
+
+                // PASSWORD
                 SizedBox(
                   width: 250,
                   child: const TextField(
@@ -70,10 +82,19 @@ class LoginPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 10,
                       ),
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black54),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2),
+                      ),
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 30),
+
                 SizedBox(
                   width: 250,
                   child: ElevatedButton(
