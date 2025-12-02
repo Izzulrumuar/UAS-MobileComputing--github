@@ -48,6 +48,17 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
+                // ✦ TEKS "Aplikasi Rumah Sakit"
+                const Text(
+                  'Aplikasi Rumah Sakit',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
                 // USERNAME
                 SizedBox(
                   width: 250,
@@ -58,11 +69,11 @@ class LoginPage extends StatelessWidget {
                         horizontal: 12,
                         vertical: 10,
                       ),
-                      border: OutlineInputBorder(),                // <-- bingkai kotak
-                      enabledBorder: OutlineInputBorder(           // <-- bingkai kotak normal
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black54),
                       ),
-                      focusedBorder: OutlineInputBorder(           // <-- bingkai saat fokus
+                      focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2),
                       ),
                     ),
