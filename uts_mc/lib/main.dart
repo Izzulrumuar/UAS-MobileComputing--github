@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/admin/dashboard_admin.dart';
+import 'screens/dokter/dashboard_dokter.dart';
+import 'screens/user/dashboard_user.dart';
+import 'models/user_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,76 +16,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Login App',
+      title: 'Aplikasi Jadwal Dokter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LoginPage(),
+      home: const LoginScreen(),
+      routes: {
+        '/admin': (context) => const DashboardAdmin(),
+        '/dokter': (context) => const DashboardDokter(),
+        '/pasien': (context) => const DashboardUser(),
+      },
     );
   }
 }
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              
-              // BOX DIPERKECIL
-              SizedBox(
-                width: 250, // << ukuran input
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Username',
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // BOX DIPERKECIL
-              SizedBox(
-                width: 250,
-                child: const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 10,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              SizedBox(
-                width: 250, // tombol disesuaikan dengan box
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Login'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+/// Fungsi untuk navigasi berdasar role
+void navigateByRole(BuildContext context, UserModel user) {
+  if (user.role == "admin") {
+    Navigator.pushReplacementNamed(context, '/admin');
+  } else if (user.role == "dokter") {
+    Navigator.pushReplacementNamed(context, '/dokter');
+  } else {
+    Navigator.pushReplacementNamed(context, '/pasien');
   }
 }
